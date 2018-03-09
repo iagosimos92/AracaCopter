@@ -36,10 +36,8 @@ int16_t sensors;
 
 float ypr[3];
 Quaternion q; 
-float temp;
 float gyro[3];
 float accel[3];
-float compass[3];
 
 uint8_t rate = 40;
 
