@@ -153,7 +153,6 @@ int ms_update() {
 	for (int i=0;i<DIM;i++){
 		gyro[i]   = (float)(g[DIM-i-1])/131.0/360.0;
 		accel[i]   = (float)(a[DIM-i-1]);
-		compass[i] = (float)(c[DIM-i-1]);
 	}
 
 	return 0;
