@@ -136,11 +136,6 @@ int ms_update() {
 	GetGravity(&gravity, &q);
 	GetYawPitchRoll(ypr, &q, &gravity);
 
-	mpu_get_temperature(&t);
-	temp=(float)t/65536L;
-
-	mpu_get_compass_reg(c);
-
 	//scaling for degrees output
 	for (int i=0;i<DIM;i++){
 		ypr[i]*=180/M_PI;
