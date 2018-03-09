@@ -4,7 +4,7 @@ CXX_OPTS= -DMPU6050 for MPU6050
 
 INSTALL=install
 
-PROG=mstest
+PROG=run
 
 %.o: %.c                                                                         
 	$(CXX) $(CXXFLAGS) $(CXX_OPTS) $< -o $@ 
