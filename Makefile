@@ -1,6 +1,6 @@
 CXX=g++
 CXXFLAGS= -Wall -g -O2
-CXX_OPTS= -Wall -g -O2
+CXX_OPTS= -DMPU6050 for MPU6050
 
 INSTALL=install
 
