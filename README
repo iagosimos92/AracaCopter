@@ -1,2 +1,3 @@
 MPU6050/MPU6500/MPU9150/MPU9250 over I2c for RaspberryPi using official Invensense libraries (v5.1):
 http://www.invensense.com/developers/index.php?_r=downloads
+https://github.com/rpicopter/MotionSensorExample.git
