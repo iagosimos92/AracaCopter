@@ -1,7 +1,7 @@
 # use file to set a servo position in us
 def servo_set_us(servo, pos):
-    with open("/dev/servoblaster", 'w') as fd:
+    with open("/dev/servoblaster", 'w') as f:
         cmd = str(servo) + '=' + str(pos) + 'us'
         cmd += '\n'
-        fd.write(cmd)
+        f.write(cmd)
 servo_set_us(0,1000)
