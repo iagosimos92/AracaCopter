@@ -4,4 +4,3 @@ https://github.com/rpicopter/MotionSensorExample.git  // DMP
 https://github.com/richardghirst/PiBits.git     // ServoBlaster
 
 Buil brigde servo          gcc -Wall -o servo servo.c
-Build Python C Extension   gcc -shared -Wl,-soname,adder -o adder.so -fPIC add.c
