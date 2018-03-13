@@ -1,7 +1,7 @@
 import greet
 
 def main():
-    greet.greet('World')
+    greet.greet('')
 
 if __name__ == "__main__":
     main()
