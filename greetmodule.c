@@ -1,11 +1,18 @@
+#include <unistd.h>
+#include <stdio.h>
+#include <math.h>
+#include "MotionSensor.h"
 #include <Python.h>
-int c=10;
+
 static PyObject *
 greet_name(PyObject *self, PyObject *args)
 {    
-    
-    printf("%d\n", c);
-
+    ms_open();
+    while(1)
+    {
+        ms_update();
+        printf("yaw = %2.1f\tpitch = %2.1f\troll = %2.1f\n",ypr[YAW], ypr[PITCH],ypr[ROLL]);
+    }
     Py_RETURN_NONE;
 }
 
@@ -19,3 +26,5 @@ initgreet(void)
 {
     (void) Py_InitModule("greet", GreetMethods);
 }
+
+
