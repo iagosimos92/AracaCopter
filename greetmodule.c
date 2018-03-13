@@ -1,7 +1,3 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <math.h>
-#include "MotionSensor.h"
 #include <Python.h>
 
 static PyObject *
