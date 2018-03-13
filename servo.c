@@ -6,7 +6,7 @@ int main()
 {
    // run servo program
     system("sudo /home/pi/AracaCopter/ServoBlaster/user/servod --pcm");
-    printf("\n");
+    printf("Init\n");
    while(1)
     {
     printf("\n");
