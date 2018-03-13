@@ -1,9 +1,10 @@
 #include <Python.h>
-
+int c=10;
 static PyObject *
 greet_name(PyObject *self, PyObject *args)
 {    
-    printf("Hello\n");
+    
+    printf("%d\n", c);
 
     Py_RETURN_NONE;
 }
