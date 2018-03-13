@@ -2,3 +2,6 @@ MPU6050/MPU6500/MPU9150/MPU9250 over I2c for RaspberryPi using official Invensen
 http://www.invensense.com/developers/index.php?_r=downloads
 https://github.com/rpicopter/MotionSensorExample.git  // DMP
 https://github.com/richardghirst/PiBits.git     // ServoBlaster
+
+
+Build Python C Extension   gcc -fpic --shared $(python-config --includes) greetmodule.c -o greetmodule.so
