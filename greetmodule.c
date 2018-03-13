@@ -3,9 +3,8 @@
 static PyObject *
 greet_name(PyObject *self, PyObject *args)
 {    
-    //printf("yaw \n");
-    //Py_RETURN_NONE;
-    return("yaw");
+    printf("yaw \n");
+    Py_RETURN_NONE;
 }
 
 static PyMethodDef GreetMethods[] = {
