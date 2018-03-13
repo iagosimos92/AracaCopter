@@ -25,7 +25,7 @@
 #define INV_Z_GYRO      (0x10)
 #define INV_XYZ_GYRO    (INV_X_GYRO | INV_Y_GYRO | INV_Z_GYRO)
 #define INV_XYZ_ACCEL   (0x08)
-
+#define INV_XYZ_COMPASS (0x01)
 
 struct int_param_s
 {
@@ -79,14 +79,15 @@ uint8_t mpu_set_gyro_fsr(uint16_t fsr);
 uint8_t mpu_get_accel_fsr(uint8_t *fsr);
 uint8_t mpu_set_accel_fsr(uint8_t fsr);
 
-
+uint8_t mpu_get_compass_fsr(uint16_t *fsr);
 
 uint8_t mpu_get_gyro_sens(float *sens);
 uint8_t mpu_get_accel_sens(uint16_t *sens);
 
 uint8_t mpu_get_sample_rate(uint16_t *rate);
 uint8_t mpu_set_sample_rate(uint16_t rate);
-
+uint8_t mpu_get_compass_sample_rate(uint16_t *rate);
+uint8_t mpu_set_compass_sample_rate(uint16_t rate);
 
 uint8_t mpu_get_fifo_config(uint8_t *sensors);
 uint8_t mpu_configure_fifo(uint8_t sensors);
@@ -99,6 +100,7 @@ uint8_t mpu_set_accel_bias(const int32_t *accel_bias);
 /* Data getter/setter APIs */
 uint8_t mpu_get_gyro_reg(int16_t *data);
 uint8_t mpu_get_accel_reg(int16_t *data);
+uint8_t mpu_get_compass_reg(int16_t *data);
 uint8_t mpu_get_temperature(int32_t *data);
 
 uint8_t mpu_get_int_status(int16_t *status);
@@ -115,4 +117,3 @@ uint8_t mpu_read_reg(uint8_t reg, uint8_t *data);
 uint8_t mpu_run_self_test(int32_t *gyro, int32_t *accel);
 
 #endif  /* _INV_MPU_H_ */
-
