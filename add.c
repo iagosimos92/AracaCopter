@@ -1,9 +1,7 @@
-#include <stdio.h>
-
-float add_float();
+int add_int(int, int);
 
 
-
-float add_float(){
-    return 3.2 + 2.1;
+int add_int(){
+    return 1000;
 }
+
