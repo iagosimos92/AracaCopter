@@ -10,17 +10,13 @@ int main()
    while(1)
     {
     printf("\n");
-    printf("--------------------------------------->\n");
     system("echo 0=1000us > /dev/servoblaster");//go to 0 degree
-    printf("0                                           degree\n");
     sleep(1);
 
     system("echo 0=1500us > /dev/servoblaster");//go to 90 degree
-    printf("                 90                         degree\n");
     sleep(1);
 
     system("echo 0=2000us > /dev/servoblaster");//go to 180 degree
-    printf("                                     180    degree\n");
     sleep(1);
     }
     return 0;
