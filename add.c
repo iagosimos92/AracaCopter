@@ -1,7 +1,8 @@
-int add_int();
+#include <stdio.h>
 
+float add_float(float, float);
 
-int add_int(){
-    return 1000;
+float add_float(float num1, float num2){
+    return num1 + num2;
 }
 
