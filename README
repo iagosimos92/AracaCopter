@@ -4,4 +4,4 @@ https://github.com/rpicopter/MotionSensorExample.git  // DMP
 https://github.com/richardghirst/PiBits.git     // ServoBlaster
 
 
-Build Python C Extension   gcc -shared -Wl,-soname,adder -o adder.so -fPIC add.c
+Build Python C Extension   gcc -shared -Wl,-soname,adder -o adder.so -fPIC main.c
