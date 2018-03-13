@@ -1,11 +1,10 @@
 DMP - clone from https://github.com/rpicopter/MotionSensorExample.git  
 ServoBlasster - clone from https://github.com/richardghirst/PiBits.git 
 
-
+Executar o programa
 ~/AracaCopter/ServoBlaster/user $ make
 ~/AracaCopter/ServoBlaster/user $ sudo make install
-~/AracaCopter  $  gcc -Wall -o servo servo.c
 ~/AracaCopter  $ make
 ~/AracaCopter  $ ./run
 
-
+Apenas o servo ~/AracaCopter  $  gcc -Wall -o servo servo.c
