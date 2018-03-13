@@ -1,4 +1,4 @@
-int add_int(int, int);
+int add_int();
 
 
 int add_int(){
