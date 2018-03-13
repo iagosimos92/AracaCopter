@@ -12,7 +12,7 @@ PROG=run
 
 all: $(PROG).o 
 	$(CXX) $(LDFLAGS) $(CXXFLAGS) -o $(PROG) \
-		greetmodule.c \
+		main.c \
 		MotionSensor/libMotionSensor.a \
 		libs/libI2Cdev.a
 
