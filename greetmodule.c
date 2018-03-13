@@ -2,14 +2,7 @@
 
 static PyObject *
 greet_name(PyObject *self, PyObject *args)
-{
-    const char *name;
-
-    if (!PyArg_ParseTuple(args, "s", &name))
-    {
-        return NULL;
-    }
-    
+{    
     printf("Hello %s!\n", name);
 
     Py_RETURN_NONE;
