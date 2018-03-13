@@ -8,7 +8,7 @@
 #define delay_ms(a) usleep(a*1000)
 
 float add_float();
-
+float ypr[3];
 float add_float() {
 	ms_open();
 	do{
