@@ -11,15 +11,15 @@ int main()
     {
     printf("\n");
     printf("--------------------------------------->\n");
-    system("echo 0=50 > /dev/servoblaster");//go to 0 degree
+    system("echo 0=1000us > /dev/servoblaster");//go to 0 degree
     printf("0                                           degree\n");
     sleep(1);
 
-    system("echo 0=150 > /dev/servoblaster");//go to 90 degree
+    system("echo 0=1500us > /dev/servoblaster");//go to 90 degree
     printf("                 90                         degree\n");
     sleep(1);
 
-    system("echo 0=250 > /dev/servoblaster");//go to 180 degree
+    system("echo 0=2000us > /dev/servoblaster");//go to 180 degree
     printf("                                     180    degree\n");
     sleep(1);
     }
