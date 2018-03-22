@@ -8,7 +8,7 @@ int main()
 {
    ms_open();
    // run servo program
-    system("sudo /AracaCopter/ServoBlaster/user/servod --pcm");
+    //system("sudo /AracaCopter/ServoBlaster/user/servod --pcm");
     printf("Init\n");
    while(1)
     {
