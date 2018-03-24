@@ -21,7 +21,7 @@ init_env()
 init_pin()
 
 GPIO.add_event_detect(18, GPIO.FALLING, callback_exit)
-
+print("Saindo do programa.")
 loop=True
 while(loop):
 	loop=True
