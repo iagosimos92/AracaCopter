@@ -11,13 +11,13 @@ void init_pin(){
 }
 
 int callback_exit(channel){
-	print("Saindo do programa.");
+	printf("Saindo do programa.");
 }
 
 init_env();
 init_pin();
 
 GPIO.add_event_detect(18, GPIO.FALLING, callback_exit);
-print("Saindo do programa.");
+printf("Saindo do programa.");
 
 while(1){}
