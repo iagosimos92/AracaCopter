@@ -7,7 +7,7 @@ def init_env():
 	GPIO.setwarnings(False)
 
 def init_pin():
-	GPIO.setup(18,GPIO.IN)
+	GPIO.setup(14,GPIO.IN)
 
 def callback_exit(channel):
 	print("Saindo do programa.")
@@ -20,7 +20,7 @@ def callback_exit(channel):
 init_env()
 init_pin()
 
-GPIO.add_event_detect(18, GPIO.FALLING, callback_exit)
+GPIO.add_event_detect(14, GPIO.FALLING, callback_exit)
 print("Saindo do programa.")
 loop=True
 while(loop):
