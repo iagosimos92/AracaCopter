@@ -13,7 +13,6 @@ def init_pin():
 	GPIO.setup(18,GPIO.IN)
 
 def callback_exit(channel):
-	print("Botão pressionado no pino ",channel)
 	print("Saindo do programa.")
 
 
