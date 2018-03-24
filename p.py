@@ -23,10 +23,6 @@ def callback_exit(channel):
 init_env()
 init_pin()
 
-
-
-print("Botão pino 18...: Sair do programa")
-
 loop=True
 while(loop):
 	loop=True
