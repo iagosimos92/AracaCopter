@@ -2,9 +2,6 @@ from os import system
 from time import sleep
 import RPi.GPIO as GPIO
 
-
-GPIO.add_event_detect(18, GPIO.FALLING, callback_exit)
-
 def init_env():
 	GPIO.setmode(GPIO.BOARD)
 	GPIO.setwarnings(False)
@@ -22,6 +19,8 @@ def callback_exit(channel):
 
 init_env()
 init_pin()
+
+GPIO.add_event_detect(18, GPIO.FALLING, callback_exit)
 
 loop=True
 while(loop):
