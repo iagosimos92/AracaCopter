@@ -13,8 +13,7 @@ def init_pin():
 
 
 def callback_exit():
-	print("Botão pressionado no pino")
-
+	
 
 ###################
 # Inicio programa #
