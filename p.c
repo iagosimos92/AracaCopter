@@ -2,15 +2,14 @@
 #include <sys/time.h>
 #include <wiringPi.h>
 int i=0;
-void handle(void) {
-	i++;
-}
+
+void myInterrupt(void) {i++;}
 
 int main(void) {
-	// Init
+
 	wiringPiSetup();
-	wiringPiISR(18, INT_EDGE_RISING, &handle);
-	
+	wiringPiISR (24, INT_EDGE_FALLING, &myInterrupt) ;
+
 	while(1){
 		printf("%d",i);
 	}
