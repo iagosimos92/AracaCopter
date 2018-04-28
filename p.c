@@ -12,7 +12,7 @@ int main() {
 	wiringPiISR(18, INT_EDGE_RISING, &handle);
 	if (wiringPiSetup () < 0)
 	  {
-	    fprintf (stderr, "Unable to setup wiringPi: %s\n", strerror (errno)) ;
+	    fprintf ( "Unable to setup wiringPi: \n") ;
 	    return 1 ;
 	  }
 	while(1){
