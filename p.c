@@ -4,15 +4,15 @@
 
 
 
-int handle(void) {
+void handle() {
 	printf("Rising\n");
 }
 
-int main(void) {
+int main() {
 	// Init
 	wiringPiSetup();
 	pinMode(18, INPUT);
-	wiringPiISR(18, INT_EDGE_RISING, &handle);
+	wiringPiISR(18, INT_EDGE_RISING, handle);
 	
 	while(1){
 		
