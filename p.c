@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <time.h>
+#include <sys/time.h>
 #include <wiringPi.h>
 
 // Which GPIO pin we're using
