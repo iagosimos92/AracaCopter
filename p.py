@@ -12,7 +12,7 @@ def init_pin():
 
 
 
-def callback_exit():
+def callback_exit(channel):
 	print("Botão pressionado no pino")
 
 
