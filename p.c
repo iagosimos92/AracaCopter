@@ -11,10 +11,10 @@
 static volatile int state;
 // Time of last change
 struct timeval last_change;
-
+struct timeval now;
 // Handler for interrupt
 void handle(void) {
-	struct timeval now;
+	
 	unsigned long diff;
 
 	gettimeofday(&now, NULL);
