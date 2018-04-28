@@ -6,7 +6,7 @@ void handle(void) {
 	i++;
 }
 
-int main() {
+int main(void) {
 	// Init
 	wiringPiSetup();
 	wiringPiISR(18, INT_EDGE_RISING, &handle);
