@@ -36,6 +36,7 @@ int main(void) {
 
 	// Bind to interrupt
 	wiringPiISR(PIN, INT_EDGE_RISING, &handle);
+	while(1)  {}
 
 	
 	
