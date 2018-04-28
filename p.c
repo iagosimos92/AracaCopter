@@ -60,8 +60,5 @@ int main(void) {
 		printf("Started! Initial state is off\n");
 	}
 
-	// Waste time but not CPU
-	for (;;) {
-		sleep(1);
-	}
+	
 }
