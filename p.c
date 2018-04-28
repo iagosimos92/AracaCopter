@@ -2,15 +2,19 @@
 #include <sys/time.h>
 #include <wiringPi.h>
 
-void handle() {
+void handle(void) {
 	printf("Rising\n");
 }
 
 int main() {
 	// Init
 	wiringPiSetup();
-	wiringPiISR(18, INT_EDGE_RISING, handle);
-	
+	wiringPiISR(18, INT_EDGE_RISING, &handle);
+	if (wiringPiSetup () < 0)
+	  {
+	    fprintf (stderr, "Unable to setup wiringPi: %s\n", strerror (errno)) ;
+	    return 1 ;
+	  }
 	while(1){
 		
 	}
