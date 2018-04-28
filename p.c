@@ -6,11 +6,11 @@
 #define PIN 18
 // How much time a change must be since the last in order to count as a change
 #define IGNORE_CHANGE_BELOW_USEC 100
-
+struct timeval last_change;
 
 void handle(void) {
-	static volatile int state;
-	struct timeval last_change;
+	
+	
 	struct timeval now;
 	unsigned long diff;
 
