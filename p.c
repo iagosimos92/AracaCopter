@@ -5,7 +5,7 @@
 // Which GPIO pin we're using
 #define PIN 18
 // How much time a change must be since the last in order to count as a change
-#define IGNORE_CHANGE_BELOW_USEC 10000000
+#define IGNORE_CHANGE_BELOW_USEC 100
 
 // Current state of the pin
 static volatile int state;
