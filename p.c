@@ -9,7 +9,6 @@ void handle() {
 int main() {
 	// Init
 	wiringPiSetup();
-	pinMode(18, OUTPUT);
 	wiringPiISR(18, INT_EDGE_RISING, handle);
 	
 	while(1){
