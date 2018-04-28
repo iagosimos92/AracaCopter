@@ -7,14 +7,11 @@
 // How much time a change must be since the last in order to count as a change
 #define IGNORE_CHANGE_BELOW_USEC 100
 
-// Current state of the pin
-static volatile int state;
-// Time of last change
-struct timeval last_change;
-struct timeval now;
-// Handler for interrupt
+
 void handle(void) {
-	
+	static volatile int state;
+	struct timeval last_change;
+	struct timeval now;
 	unsigned long diff;
 
 	gettimeofday(&now, NULL);
@@ -22,17 +19,7 @@ void handle(void) {
 	// Time difference in usec
 	diff = (now.tv_sec * 1000000 + now.tv_usec) - (last_change.tv_sec * 1000000 + last_change.tv_usec);
 
-	// Filter jitter
-	if (diff > IGNORE_CHANGE_BELOW_USEC) {
-		if (state) {
-			printf("Falling\n");
-		}
-		else {
-			printf("Rising\n");
-		}
-
-		state = !state;
-	}
+	printf("Rising\n");
 
 	last_change = now;
 }
@@ -48,17 +35,8 @@ int main(void) {
 	gettimeofday(&last_change, NULL);
 
 	// Bind to interrupt
-	wiringPiISR(PIN, INT_EDGE_BOTH, &handle);
+	wiringPiISR(PIN, INT_EDGE_RISING, &handle);
 
-	// Get initial state of pin
-	state = digitalRead(PIN);
-
-	if (state) {
-		printf("Started! Initial state is on\n");
-	}
-	else {
-		printf("Started! Initial state is off\n");
-	}
-
+	
 	
 }
