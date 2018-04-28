@@ -42,7 +42,7 @@ int main(void) {
 	wiringPiSetup();
 
 	// Set pin to output in case it's not
-	pinMode(PIN, INTPUT);
+	pinMode(PIN, INPUT);
 
 	// Time now
 	gettimeofday(&last_change, NULL);
