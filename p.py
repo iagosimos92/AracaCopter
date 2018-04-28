@@ -2,26 +2,16 @@ from os import system
 from time import sleep
 import RPi.GPIO as GPIO
 
-def init_env():
-	GPIO.setmode(GPIO.BOARD)
-	GPIO.setwarnings(False)
-
-def init_pin():
-	GPIO.setup(18,GPIO.IN)
 
 def callback_exit(channel):
-	print("Saindo do programa.")
+	print("ISR")
 
 
-###################
-# Inicio programa #
-###################
 
-init_env()
-init_pin()
-
+GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
+GPIO.setup(18,GPIO.IN)
 GPIO.add_event_detect(18, GPIO.FALLING, callback_exit)
-print("Saindo do programa.")
-loop=True
-while(loop):
-	loop=True
+
+while(1):
+
