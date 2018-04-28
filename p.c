@@ -8,7 +8,7 @@ void myInterrupt(void) {i++;}
 int main(void) {
 
 	wiringPiSetup();
-	wiringPiISR (24, INT_EDGE_FALLING, &myInterrupt) ;
+	wiringPiISR (18, INT_EDGE_FALLING, &myInterrupt) ;
 
 	while(1){
 		printf("%d",i);
