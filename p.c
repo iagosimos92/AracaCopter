@@ -11,8 +11,8 @@ void handle(void) {
 int main(void) {
 	// Init
 	wiringPiSetup();
-	pinMode(18, INPUT);
-	wiringPiISR(18, INT_EDGE_RISING, &handle);
+	pinMode(24, INPUT);
+	wiringPiISR(24, INT_EDGE_RISING, &handle);
 	
 	while(1){
 		
