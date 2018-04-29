@@ -9,4 +9,5 @@ Compilar o programa
 Executar o programa
 ~/AracaCopter  $ ./run
 
+RC - gcc -lwiringPi -o gpio-interrupt gpio-interrupt.c
 Apenas o servo ~/AracaCopter  $  gcc -Wall -o servo servo.c
