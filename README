@@ -9,5 +9,5 @@ Compilar o programa
 Executar o programa
 ~/AracaCopter  $ ./run
 
-RC - gcc -lwiringPi -o p p.c
+Apenas RC ~/AracaCopter  $  gcc -lwiringPi -o p p.c
 Apenas o servo ~/AracaCopter  $  gcc -Wall -o servo servo.c
