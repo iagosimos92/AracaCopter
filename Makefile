@@ -15,7 +15,7 @@ all: $(PROG).o
 		quad.c \
 		MotionSensor/libMotionSensor.a \
 		libs/libI2Cdev.a   \
-		-lwiringPi
+		
 
 $(PROG).o: MotionSensor/libMotionSensor.a libs/libI2Cdev.a
 
