@@ -11,6 +11,6 @@ int main(void) {
 	wiringPiISR (0, INT_EDGE_FALLING, &myInterrupt) ;
 
 	while(1){
-		printf("%d"/n,i);
+		printf("%d",i);
 	}
 }
