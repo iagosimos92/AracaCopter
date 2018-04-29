@@ -2,7 +2,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <wiringPi.h>
-
 #include "MotionSensor.h"
 
 int i=0;
@@ -12,10 +11,10 @@ int main()
 {
    
    wiringPiSetup();
-	wiringPiISR (0, INT_EDGE_FALLING, &myInterrupt) ;
-   
-   ms_open();
+   wiringPiISR (0, INT_EDGE_FALLING, &myInterrupt) ;
    system("sudo /AracaCopter/ServoBlaster/user/servod --pcm");
+   ms_open();
+   
     
    while(1)
     {
