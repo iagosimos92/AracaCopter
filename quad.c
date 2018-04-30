@@ -8,8 +8,7 @@
 int i=0;
 int j=1;
 unsigned int ch1=0;
-unsigned int ch2=0;
-unsigned int ch=0;
+unsigned int t1=0;
 struct timeval last_change;
 
 
@@ -18,17 +17,17 @@ void ISR1(void) {
    struct timeval now;
    if(j==1){
       gettimeofday(&now, NULL);
-      ch = now.tv_sec - last_change.tv_usec;
-      if(ch<2200 || ch1>800){
-         ch1=ch;
+      t1 = now.tv_sec - last_change.tv_usec;
+      if(t1<2200 || t1>800){
+         ch1=t1;
       }
       j=2;
    }
   if(j==2){
       gettimeofday(&now, NULL);
-      ch = now.tv_sec - last_change.tv_usec;
-      if(ch<2200|| ch>800){
-          ch1=ch;
+      t1 = now.tv_sec - last_change.tv_usec;
+      if(t1<2200|| t1>800){
+          ch1=t1;
        }
       j=1;
    }
