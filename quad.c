@@ -29,8 +29,8 @@ void ISR1(void) {
       }
       j=0;
    }
-   last_change = now;
-}
+   gettimeofday(&last_change, NULL);
+ }
 
 
 
