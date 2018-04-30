@@ -13,39 +13,23 @@ volatile int ch2=0;
 volatile int t2=0;
 struct timeval last_change;
 
-void ISR1(void) {
-   struct timeval now;
-   if(j==0){
-      gettimeofday(&now, NULL);
-      t1 = now.tv_usec - last_change.tv_usec;
-      j=1;
-   }
-   j++;
-   if(j==3){
-      gettimeofday(&now, NULL);
-      t2 = now.tv_usec - last_change.tv_usec;
-      ch2=t1+t2;
-      if(ch2>17000 && ch2<20000){
-         if(t1>=1000 && t1<=2000){
-            ch1=t1;
-         }
-         if(t2>=1000 && t2<=2000){
-            ch1=t2;
-         }
-      }
-      
-      j=0;
-    }
-    gettimeofday(&last_change, NULL);
+void rising1(void) {
+   wiringPiISR (0, INT_EDGE_FALLING, &falling1);
+   gettimeofday(&last_change, NULL);
  }
-
+void falling1(void) {
+   wiringPiISR (0, INT_EDGE_RISING, &rising1);
+   struct timeval now;
+   gettimeofday(&now, NULL);
+   ch1 = now.tv_usec - last_change.tv_usec;   
+ }
 
 
 int main()
 {
    
    wiringPiSetup();
-   wiringPiISR (0, INT_EDGE_BOTH, &ISR1);
+   wiringPiISR (0, INT_EDGE_RISING, &rising1);
    system("sudo /AracaCopter/ServoBlaster/user/servod --pcm");
    ms_open();
    
