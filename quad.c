@@ -10,11 +10,12 @@ struct timeval last_change;
 
 
 void falling1(void) {
-   struct timeval now;
-   gettimeofday(&now, NULL);
-   ch1 = now.tv_usec - last_change.tv_usec;   
-   i=3;
-   printf("CH1 : %d\n ",ch1);
+   if(i==0){
+      struct timeval now;
+      gettimeofday(&now, NULL);
+      ch1 = now.tv_usec - last_change.tv_usec;   
+      i=3;
+   }
  }
 void rising1(void) {
    wiringPiISR (0, INT_EDGE_FALLING, &falling1);
