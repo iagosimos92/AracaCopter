@@ -13,8 +13,8 @@ struct timeval last_change;
 
 void ISR1(void) {
    struct timeval now;
-   gettimeofday(&now, NULL);
    if(j==0){
+      gettimeofday(&now, NULL);
       t1 = now.tv_usec - last_change.tv_usec;
       if(t1<=2000 && t1>=1000){
          ch1=t1;
@@ -23,6 +23,7 @@ void ISR1(void) {
    }
    j++;
   if(j==3){
+     gettimeofday(&now, NULL);
       t1 = now.tv_usec - last_change.tv_usec;
       if(t1<=2000 && t1>=1000){
           ch1=t1;
