@@ -28,7 +28,7 @@ int main()
 { 
    wiringPiSetup();
    wiringPiISR (0, INT_EDGE_RISING, &rising1);
-   system("sudo /AracaCopter/ServoBlaster/user/servod --pcm");
+   //system("sudo /AracaCopter/ServoBlaster/user/servod --pcm");
    ms_open();
    
    while(1){
@@ -38,7 +38,7 @@ int main()
        printf("CH1 : %d ",ch1); 
      }
       printf("CH1 : %d ",i); 
-     system("echo 0=1000us > /dev/servoblaster");//go to 0 degree      
+     //system("echo 0=1000us > /dev/servoblaster");//go to 0 degree      
      ms_update();
 
        //printf("yaw = %2.1f\tpitch = %2.1f\troll = %2.1f\n",ypr[YAW], ypr[PITCH],ypr[ROLL]);
