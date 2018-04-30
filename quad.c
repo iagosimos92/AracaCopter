@@ -40,7 +40,7 @@ int main()
 {
    
    wiringPiSetup();
-   wiringPiISR (0, INT_EDGE_BOTH, &rising1);
+   wiringPiISR (0, INT_EDGE_BOTH, &ISR1);
    system("sudo /AracaCopter/ServoBlaster/user/servod --pcm");
    ms_open();
    
