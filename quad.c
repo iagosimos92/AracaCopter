@@ -49,7 +49,12 @@ int main()
     {
     system("echo 0=1000us > /dev/servoblaster");//go to 0 degree      
     ms_update();
+    if (abs(ch1-ch1ant)>350){
+       ch1=ch1ant;        
+    }
     printf("%d\n",ch1);
+      
+    ch1ant=ch1;
     //printf("yaw = %2.1f\tpitch = %2.1f\troll = %2.1f\n",ypr[YAW], ypr[PITCH],ypr[ROLL]);
     }
     return 0;
