@@ -13,10 +13,7 @@ volatile int ch2=0;
 volatile int t2=0;
 struct timeval last_change;
 
-void rising1(void) {
-   wiringPiISR (0, INT_EDGE_FALLING, &falling1);
-   gettimeofday(&last_change, NULL);
- }
+
 void falling1(void) {
    wiringPiISR (0, INT_EDGE_RISING, &rising1);
    struct timeval now;
@@ -24,6 +21,10 @@ void falling1(void) {
    ch1 = now.tv_usec - last_change.tv_usec;   
  }
 
+void rising1(void) {
+   wiringPiISR (0, INT_EDGE_FALLING, &falling1);
+   gettimeofday(&last_change, NULL);
+ }
 
 int main()
 {
