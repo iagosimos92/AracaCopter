@@ -5,7 +5,7 @@
 #include <wiringPi.h>
 #include "MotionSensor.h"
 int i=0;
-int j=0;
+int j=1;
 volatile  int t1=0;
 volatile  int t2=0;
 struct timeval last_change;
