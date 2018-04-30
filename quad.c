@@ -14,6 +14,7 @@ void falling1(void) {
    gettimeofday(&now, NULL);
    ch1 = now.tv_usec - last_change.tv_usec;   
    i=3;
+   printf("CH1 : %d ",ch1);
  }
 void rising1(void) {
    wiringPiISR (0, INT_EDGE_FALLING, &falling1);
