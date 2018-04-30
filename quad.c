@@ -10,7 +10,7 @@ struct timeval last_change;
 
 
 void falling1(void) {
-   if(i==0){
+   if(i==1){
       struct timeval now;
       gettimeofday(&now, NULL);
       ch1 = now.tv_usec - last_change.tv_usec;   
@@ -18,6 +18,7 @@ void falling1(void) {
    }
  }
 void rising1(void) {
+   i=1;
    wiringPiISR (0, INT_EDGE_FALLING, &falling1);
    gettimeofday(&last_change, NULL);
  }
