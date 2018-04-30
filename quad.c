@@ -7,10 +7,10 @@
 
 int i=0;
 int j=0;
-int ch1=0;
-int t1=0;
-int ch2=0;
-int t2=0;
+volatile int ch1=0;
+volatile int t1=0;
+volatile int ch2=0;
+volatile int t2=0;
 struct timeval last_change;
 
 void ISR1(void) {
