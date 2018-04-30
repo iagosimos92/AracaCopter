@@ -18,22 +18,25 @@ void ISR1(void) {
    if(j==0){
       gettimeofday(&now, NULL);
       t1 = now.tv_usec - last_change.tv_usec;
-      if(t1<=2000 && t1>=1000){
-         ch1=t1;
-      }
       j=1;
    }
    j++;
-  if(j==3){
-     gettimeofday(&now, NULL);
+   if(j==3){
+      gettimeofday(&now, NULL);
       t2 = now.tv_usec - last_change.tv_usec;
-      if(t2<=2000 && t2>=1000){
-          ch1=t2;
+      ch2=t1+t2;
+      if(ch2>17000 && ch2<20000){
+         if(t1>=1000 && t1<=2000){
+            ch1=t1;
+         }
+         if(t2>=1000 && t2<=2000){
+            ch1=t2;
+         }
       }
-     ch2=t1+t2;
+      
       j=0;
-   }
-   gettimeofday(&last_change, NULL);
+    }
+    gettimeofday(&last_change, NULL);
  }
 
 
