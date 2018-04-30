@@ -8,14 +8,11 @@
 int i=0;
 int j=1;
 int ch1=0;
-int ch1ant=0;
-int t1=0;
 struct timeval last_change;
-
-
 
 void ISR1(void) {
    struct timeval now;
+   int t1=0;
    if(j==1){
       gettimeofday(&now, NULL);
       t1 = now.tv_sec - last_change.tv_usec;
@@ -50,12 +47,7 @@ int main()
     {
     system("echo 0=1000us > /dev/servoblaster");//go to 0 degree      
     ms_update();
-    if (abs(ch1-ch1ant)>350){
-       ch1=ch1ant;        
-    }
-    printf("%d\n",ch1);
-      
-    ch1ant=ch1;
+    printf("CH1 : %d\n",ch1);
     //printf("yaw = %2.1f\tpitch = %2.1f\troll = %2.1f\n",ypr[YAW], ypr[PITCH],ypr[ROLL]);
     }
     return 0;
