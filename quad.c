@@ -11,12 +11,14 @@ struct timeval last_change;
 
 void rising1(void) {
    gettimeofday(&last_change, NULL);
+   printf("CH1 : %d  \n  ",ch1); 
 }
 
 void falling1(void) {
    struct timeval now;
    gettimeofday(&now, NULL);
    ch1 = now.tv_usec - last_change.tv_usec;
+   printf("CH2 : %d  \n  ",ch1); 
 }
 
 
@@ -31,7 +33,7 @@ int main()
 
    while(1){
      ms_update();
-     printf("CH1 : %d  \n  ",ch1); 
+     
      //system("echo 0=1000us > /dev/servoblaster");//go to 0 degree      
      //printf("yaw = %2.1f\tpitch = %2.1f\troll = %2.1f\n",ypr[YAW], ypr[PITCH],ypr[ROLL]);
     }
