@@ -31,7 +31,7 @@ int main()
 
    while(1){
      ms_update();
-     printf("CH1 : %d    ",ch1); 
+     printf("CH1 : %d  \n  ",ch1); 
      //system("echo 0=1000us > /dev/servoblaster");//go to 0 degree      
      //printf("yaw = %2.1f\tpitch = %2.1f\troll = %2.1f\n",ypr[YAW], ypr[PITCH],ypr[ROLL]);
     }
