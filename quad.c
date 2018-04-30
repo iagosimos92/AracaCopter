@@ -9,6 +9,8 @@ int i=0;
 int j=0;
 int ch1=0;
 int t1=0;
+int ch2=0;
+int t2=0;
 struct timeval last_change;
 
 void ISR1(void) {
@@ -24,10 +26,11 @@ void ISR1(void) {
    j++;
   if(j==3){
      gettimeofday(&now, NULL);
-      t1 = now.tv_usec - last_change.tv_usec;
-      if(t1<=2000 && t1>=1000){
-          ch1=t1;
+      t2 = now.tv_usec - last_change.tv_usec;
+      if(t2<=2000 && t2>=1000){
+          ch1=t2;
       }
+     ch2=t1+t2;
       j=0;
    }
    gettimeofday(&last_change, NULL);
@@ -48,7 +51,8 @@ int main()
     {
     system("echo 0=1000us > /dev/servoblaster");//go to 0 degree      
     ms_update();
-    printf("CH1 : %d\n",ch1);
+    printf("CH1 : %d   ",ch1);
+    printf("  CH2 : %d\n",ch2);
     //printf("yaw = %2.1f\tpitch = %2.1f\troll = %2.1f\n",ypr[YAW], ypr[PITCH],ypr[ROLL]);
     }
     return 0;
