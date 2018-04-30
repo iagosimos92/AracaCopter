@@ -25,8 +25,8 @@ void ISR1(void) {
    }
   if(j==2){
       gettimeofday(&now, NULL);
-      t1 = now.tv_sec - last_change.tv_usec;
-      if(t1<2200|| t1>800){
+      t1 = now.tv_usec - last_change.tv_usec;
+      if(t1<2200 || t1>800){
           ch1=t1;
        }
       j=1;
