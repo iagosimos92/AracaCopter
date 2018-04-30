@@ -33,12 +33,13 @@ int main()
    ms_open();
    
    while(1){
+     printf("CH1 : %d ",i); 
      if(i==3){
        i=0;
        wiringPiISR (0, INT_EDGE_RISING, &rising1);
        printf("CH1 : %d ",ch1); 
      }
-      printf("CH1 : %d ",i); 
+     
      //system("echo 0=1000us > /dev/servoblaster");//go to 0 degree      
      ms_update();
 
