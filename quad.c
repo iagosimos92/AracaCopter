@@ -14,7 +14,7 @@ void falling1(void) {
       struct timeval now;
       gettimeofday(&now, NULL);
       ch1 = now.tv_usec - last_change.tv_usec;   
-      i=3;
+      i=0;
    }
  }
 void rising1(void) {
@@ -34,11 +34,8 @@ int main()
    
    while(1){
      
-     if(i==3){
-       i=0;
-       wiringPiISR (0, INT_EDGE_RISING, &rising1);
-       printf("CH1 : %d ",ch1); 
-     }
+     wiringPiISR (0, INT_EDGE_RISING, &rising1);
+     printf("CH1 : %d \n ",ch1); 
      
      //system("echo 0=1000us > /dev/servoblaster");//go to 0 degree      
      ms_update();
