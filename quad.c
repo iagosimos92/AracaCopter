@@ -18,16 +18,16 @@ void ISR1(void) {
    struct timeval now;
    if(j==1){
       gettimeofday(&now, NULL);
-      ch = (now.tv_sec * 1000000 + now.tv_usec) - (last_change.tv_sec * 1000000 + last_change.tv_usec);
-      if(ch1<2200){
+      ch = now.tv_sec - last_change.tv_usec;
+      if(ch<2200 || ch1>800){
          ch1=ch;
       }
       j=2;
    }
   if(j==2){
       gettimeofday(&now, NULL);
-      ch = (now.tv_sec * 1000000 + now.tv_usec) - (last_change.tv_sec * 1000000 + last_change.tv_usec);
-      if(ch1<2200){
+      ch = now.tv_sec - last_change.tv_usec;
+      if(ch<2200|| ch>800){
           ch1=ch;
        }
       j=1;
