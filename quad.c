@@ -16,17 +16,17 @@ void ISR1(void) {
    gettimeofday(&now, NULL);
    if(j==0){
       t1 = now.tv_usec - last_change.tv_usec;
-      //if(t1<2200 || t1>800){
-      //   ch1=t1;
-      //}
+      if(t1<2200 && t1>800){
+         ch1=t1;
+      }
       j=1;
    }
    j++;
   if(j==3){
-      ch1 = now.tv_usec - last_change.tv_usec;
-      //if(t1<2200 || t1>800){
-      //    ch1=t1;
-       //}
+      t1 = now.tv_usec - last_change.tv_usec;
+      if(t1<2200 && t1>800){
+          ch1=t1;
+      }
       j=0;
    }
    last_change = now;
