@@ -16,7 +16,7 @@ void rising1(void) {
 void falling1(void) {
    struct timeval now;
    gettimeofday(&now, NULL);
-   t1 = now.tv_usec - last_change.tv_usec;
+   ch1 = now.tv_usec - last_change.tv_usec;
 }
 
 
