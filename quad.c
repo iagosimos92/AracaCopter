@@ -9,7 +9,8 @@ int i=0;
 unsigned int ch1=0;
 struct timeval last_change;
 struct timeval now;
-void falling1() {
+
+void falling1(void) {
   wiringPiISR (0, INT_EDGE_RISING, &rising1);
    
   gettimeofday(&now, NULL);
