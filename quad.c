@@ -20,12 +20,10 @@ int main()
     system("echo 0=1000us > /dev/servoblaster");//go to 0 degree      
     ms_update();
     printf("CH1 : %d     ",ch1);
-    printf("CH2 : %d\n",ch2);
     //printf("yaw = %2.1f\tpitch = %2.1f\troll = %2.1f\n",ypr[YAW], ypr[PITCH],ypr[ROLL]);
     }
     return 0;
 }
-
 
 void falling1(void) {
    wiringPiISR (0, INT_EDGE_RISING, &rising1);
