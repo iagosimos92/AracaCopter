@@ -33,7 +33,7 @@ int main()
    ms_open();
    
    while(1){
-     printf("CH1 : %d ",i); 
+     
      if(i==3){
        i=0;
        wiringPiISR (0, INT_EDGE_RISING, &rising1);
