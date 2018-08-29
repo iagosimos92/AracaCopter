@@ -41,15 +41,28 @@ int main()
 	  	  /*---- Read the message from the server into the buffer ----*/
 		  recv(clientSocket, buffer, 21, 0);
 		  for(i=0;i<21;i++){
-		  						
-				if(buffer[i]==','){	  			
-				    canal[n]=atoi(ch);
-					 n=n+1;
-					 w=0;		
-				}else{
-					ch[w]=buffer[i];
-					w=w+1;	  		
-				   }
+		        if(buffer[i]=='a' && i==0){
+		  			j=1;
+		  			n=0;
+					w=0;
+				  }else{
+				  	if(j==1){
+						
+						if(buffer[i]==','){	  			
+							canal[n]=atoi(ch);
+							if(n==3){
+								j=0;
+							}
+						 	n=n+1;
+							w=0;
+							
+						}else{
+							ch[w]=buffer[i];
+							w=w+1;	  		
+					   }
+					}
+				  }
+
 			}
 		  	/*---- Print the received message ----*/ 	
 		  	printf("\n");
