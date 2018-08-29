@@ -33,8 +33,11 @@ int main()
   /*---- Connect the socket to the server using the address struct ----*/
   addr_size = sizeof serverAddr;
   connect(clientSocket, (struct sockaddr *) &serverAddr, addr_size);
-   
-  ms_open(); //Iniciar conexão com o MPU6050
+  
+  //////////// run servo program ////////////////
+  system("sudo ~/AracaCopter/ServoBlaster/user/servod --pcm");
+  ///////////// Iniciar conexão com o MPU6050 ///////////////////
+  ms_open(); 
 
    while(1){
         int i=0,w=0,n=0,j=0;
@@ -76,7 +79,8 @@ int main()
 		  	printf("\n");
       
          ms_update();
-         printf("yaw = %2.1f\tpitch = %2.1f\troll = %2.1f\n",ypr[YAW], ypr[PITCH],ypr[ROLL]);
+         printf("yaw = %2.1f\tpitch = %2.1f\troll = %2.1f\n",ypr[YAW], ypr[PITCH],ypr[ROLL]);  
+	 system("echo 0=1000us > /dev/servoblaster");//go to 0 degree
     }
     return 0;
 }
