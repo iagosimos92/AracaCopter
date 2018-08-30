@@ -113,10 +113,10 @@ void motor_update(){
    if(motor3>2000) motor3=2000;
    if(motor4>2000) motor4=2000;
 	
-	system("echo 3=%dus > /dev/servoblaster",motor1);//GPIO 27
+/*	system("echo 3=%dus > /dev/servoblaster",motor1);//GPIO 27
 	system("echo 4=%dus > /dev/servoblaster",motor2);//GPIO 22
 	system("echo 5=%dus > /dev/servoblaster",motor3);//GPIO 23
-	system("echo 6=%dus > /dev/servoblaster",motor4);//GPIO 24	
+	system("echo 6=%dus > /dev/servoblaster",motor4);//GPIO 24*/	
 }
 
 
