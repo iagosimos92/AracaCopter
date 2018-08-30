@@ -8,40 +8,6 @@
 #include <string.h>
 
 
-int main()
-{ 
-  int clientSocket;
-  int velX=0,velY=0;
-  int motor1=1000, motor2=1000, motor3=1000, motor4=1000;
-  float kp=2.2, kd=0.2, ki=1.1;
-  float kpz=2.2, kdz=0.2, kiz=1.1;
-  float SampleTime = 10; 
-  unsigned long lastTime=0;
-  float outmax=300, outmin=-300;
-  float Ix=0 , Iy=0 , Iz = 0;
-  float lasteX=0=,lasteY=0,lasteZ=0;
-	
-	
-  system("sudo ~/AracaCopter/ServoBlaster/user/servod --pcm"); // run servo program 
-  tcp_open();// Iniciar conexão TCP
-  ms_open(); // Iniciar conexão com o MPU6050
-  motor_init(); // Configurar esc
-  pid_init(); // Iniciar parametros PID
-
-   while(1){
-        tcp();
-        ms_update();
-        pid_update();
-        motor_update();
-    }
-    return 0;
-}
-
-
-
-
-
-
 //////////////////  Função PID  ///////////////////////
 void pid_init(){
    ki = Ki * (SampleTime/1000); //  KI * SampletimeinSEC
@@ -191,4 +157,41 @@ void tcp(){
 	printf("\n");
 	*/
 }
+
+
+
+int main()
+{ 
+  int clientSocket;
+  int velX=0,velY=0;
+  int motor1=1000, motor2=1000, motor3=1000, motor4=1000;
+  float kp=2.2, kd=0.2, ki=1.1;
+  float kpz=2.2, kdz=0.2, kiz=1.1;
+  float SampleTime = 10; 
+  unsigned long lastTime=0;
+  float outmax=300, outmin=-300;
+  float Ix=0 , Iy=0 , Iz=0;
+  float lasteX=0=,lasteY=0,lasteZ=0;
+	
+	
+  system("sudo ~/AracaCopter/ServoBlaster/user/servod --pcm"); // run servo program 
+  tcp_open();// Iniciar conexão TCP
+  ms_open(); // Iniciar conexão com o MPU6050
+  motor_init(); // Configurar esc
+  pid_init(); // Iniciar parametros PID
+
+   while(1){
+        tcp();
+        ms_update();
+        pid_update();
+        motor_update();
+    }
+    return 0;
+}
+
+
+
+
+
+
 
