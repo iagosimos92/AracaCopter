@@ -13,8 +13,8 @@ int main()
   int clientSocket;
   int velX=0,velY=0;
   int motor1=1000, motor2=1000, motor3=1000, motor4=1000;
-  float kp=2.2, kd=0,2, ki=1.1;
-  float kpz=2.2, kdz=0,2, kiz=1.1;
+  float kp=2.2, kd=0.2, ki=1.1;
+  float kpz=2.2, kdz=0.2, kiz=1.1;
   float SampleTime = 10; 
   unsigned long lastTime=0;
   float outmax=300, outmin=-300;
