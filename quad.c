@@ -15,5 +15,10 @@ int main()
     printf("Tempo= %d",x);
 
     sleep(1);
+    x=millis();
+    printf("Tempo= %d",x);
+    sleep(1);
+    x=millis();
+    printf("Tempo= %d",x);
     return 0;
 }
