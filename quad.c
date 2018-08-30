@@ -10,6 +10,18 @@
 
 int main()
 { 
+  int clientSocket;
+  int velX=0,velY=0;
+  int motor1=1000, motor2=1000, motor3=1000, motor4=1000;
+  float kp=2.2, kd=0,2, ki=1.1;
+  float kpz=2.2, kdz=0,2, kiz=1.1;
+  float SampleTime = 10; 
+  unsigned long lastTime=0;
+  float outmax=300, outmin=-300;
+  float Ix=0 , Iy=0 , Iz = 0;
+  float lasteX=0=,lasteY=0,lasteZ=0;
+	
+	
   system("sudo ~/AracaCopter/ServoBlaster/user/servod --pcm"); // run servo program 
   tcp_open();// Iniciar conexão TCP
   ms_open(); // Iniciar conexão com o MPU6050
@@ -32,21 +44,13 @@ int main()
 
 //////////////////  Função PID  ///////////////////////
 void pid_init(){
-   float kp=2.2, kd=0,2, ki=1.1;
-   float kpz=2.2, kdz=0,2, kiz=1.1;
-   float SampleTime = 10; 
-   unsigned long lastTime=0;
-   float outmax=300, outmin=-300;
-   float Ix=0 , Iy=0 , Iz = 0;
-   float lasteX=0=,lasteY=0,lasteZ=0;
-   
    ki = Ki * (SampleTime/1000); //  KI * SampletimeinSEC
    kd = Kd / (SampleTime/1000); //  KD / SampletimeinSEC
    kiz = Kiz * (SampleTime/1000); //  KI * SampletimeinSEC
    kdz = Kdz / (SampleTime/1000); //  KD / SampletimeinSEC
 }
-void pid_update(){
 
+void pid_update(){
    unsigned long now = millis();
    int timeChange = (now - lastTime);
    if(timeChange>=SampleTime)
@@ -83,9 +87,7 @@ void motor_init(){
 	system("echo 4=1000us > /dev/servoblaster");//GPIO 22
 	system("echo 5=1000us > /dev/servoblaster");//GPIO 23
 	system("echo 6=1000us > /dev/servoblaster");//GPIO 24
-	int velX=0,velY=0;
-	int motor1=1000, motor2=1000, motor3=1000, motor4=1000;
-	
+
 }
 void motor_update(){
    velX = canal[0] + outputZ;
@@ -124,10 +126,6 @@ void motor_update(){
 ////////////////////  Função TCP  ////////////////////////
 
 void tcp_open(){
-  int clientSocket;
-  char buffer[21];
-  char ch[4];
-  int canal[4];
   struct sockaddr_in serverAddr;
   socklen_t addr_size;
 
@@ -153,6 +151,9 @@ void tcp_open(){
 
 void tcp(){
 	int i=0,w=0,n=0,j=0;
+	char buffer[21];
+        char ch[4];
+        int canal[4];
 	/*---- Read the message from the server into the buffer ----*/
 	recv(clientSocket, buffer, 21, 0);
 	for(i=0;i<21;i++){
