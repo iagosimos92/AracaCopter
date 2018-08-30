@@ -14,7 +14,9 @@ all: $(PROG).o
 	$(CXX) $(LDFLAGS) $(CXXFLAGS) -o $(PROG) \
 		quad.c \
 		MotionSensor/libMotionSensor.a \
-		libs/libI2Cdev.a   
+		libs/libI2Cdev.a  a   \
+		-lwiringPi
+ 
 		
 
 $(PROG).o: MotionSensor/libMotionSensor.a libs/libI2Cdev.a
