@@ -6,6 +6,7 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <string.h>
+#include <wiringPi.h>
 
 int clientSocket;
 int velX=0,velY=0;
