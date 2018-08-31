@@ -17,6 +17,7 @@ unsigned long lastTime=0;
 float outmax=300, outmin=-300;
 float Ix=0 , Iy=0 , Iz=0;
 float lasteX=0,lasteY=0,lasteZ=0;
+float outputX=0, outputY=0,outputZ=0; 
 
 
 //////////////////  Função PID  ///////////////////////
@@ -43,9 +44,9 @@ void pid_update(){
 
  
       /*Compute PID Output*/
-      float outputX = kp*eX + Ix - kd*(eX-lasteX);
-      float outputY = kp*eY + Iy - kd*(eX-lasteX) ;
-      float outputZ = kpz*eZ + Iz - kdz*(eX-lasteX) ;
+      outputX = kp*eX + Ix - kd*(eX-lasteX);
+      outputY = kp*eY + Iy - kd*(eX-lasteX) ;
+      outputZ = kpz*eZ + Iz - kdz*(eX-lasteX) ;
       
 	  
       /*Remember some variables for next time*/
