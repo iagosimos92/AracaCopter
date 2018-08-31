@@ -176,8 +176,9 @@ int main()
   system("sudo ~/AracaCopter/ServoBlaster/user/servod --pcm"); // run servo program 
   tcp_open();// Iniciar conexão TCP
   ms_open(); // Iniciar conexão com o MPU6050
-  motor_init(); // Configurar esc
   pid_init(); // Iniciar parametros PID
+  motor_init(); // Configurar esc
+  
 
    while(1){
         tcp();
