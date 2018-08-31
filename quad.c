@@ -18,6 +18,7 @@ float outmax=300, outmin=-300;
 float Ix=0 , Iy=0 , Iz=0;
 float lasteX=0,lasteY=0,lasteZ=0;
 float outputX=0, outputY=0,outputZ=0; 
+int canal[4];
 
 
 //////////////////  Função PID  ///////////////////////
@@ -131,7 +132,6 @@ void tcp(){
 	int i=0,w=0,n=0,j=0;
 	char buffer[21];
         char ch[4];
-        int canal[4];
 	/*---- Read the message from the server into the buffer ----*/
 	recv(clientSocket, buffer, 21, 0);
 	for(i=0;i<21;i++){
