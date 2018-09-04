@@ -200,7 +200,11 @@ void tcp(){
 		}
 	}
 	for(i=0;i<4;i++){
-		canal[i]=chanal[i]*0.06-150;
+		if(i==0){
+			canal[i]=chanal[i]-1000;
+		}else{
+			canal[i]=chanal[i]*0.06-150;
+		}
 	}
 }
 
