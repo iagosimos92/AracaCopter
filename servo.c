@@ -10,7 +10,8 @@ int main()
    system("sudo ~/AracaCopter/ServoBlaster/user/servod --pcm");
    printf("Init\n");
    int x=1000,i=0;
-   char str1[50]="echo 0=";
+   char str[50];
+   char str1[7]="echo 0=";
    char str2[5]="1000";
    char str3[22]="us > /dev/servoblaster";
 
@@ -28,10 +29,11 @@ int main()
             i=0;
          }
     }
-    str1[50]="echo 0=";
+    str[0]= '\0';
     snprintf(str2, sizeof(str2), "%d", x);
-    strncat(str1, str2, 4);
-    strncat(str1, str3, 22);
+    strncat(str, str1, 7);
+    strncat(str, str2, 4);
+    strncat(str, str3, 22);
     printf("string= %s\n",str1);
     system(str1);//go to 90 degree
     sleep(1);
