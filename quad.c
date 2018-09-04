@@ -18,7 +18,9 @@ float Ix=0 , Iy=0 , Iz=0;
 float lasteX=0,lasteY=0,lasteZ=0;
 float outputX=0, outputY=0,outputZ=0; 
 int canal[4];
-float kp=2.2, kd=0.2, ki=1.1;
+float kp=2.2; 
+float kd=0.2;
+float ki=1.1;
 float kpz=2.2, kdz=0.2, kiz=1.1;
 
 //////////////////  Função PID  ///////////////////////
