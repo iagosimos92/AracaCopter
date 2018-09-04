@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h> //necessário para strcpy
+#include <wiringPi.h>
 int main()
 {
    // run servo program
