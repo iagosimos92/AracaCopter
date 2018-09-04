@@ -124,7 +124,7 @@ void motor_update(){
 	
 	str4[0]= '\0';
     	snprintf(strx, sizeof(strx), "%d", motor4);
-    	strncat(str4, strm1, 7);
+    	strncat(str4, strm4, 7);
     	strncat(str4, strx, 4);
     	strncat(str4, str, 22);
 	
