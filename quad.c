@@ -94,6 +94,7 @@ void motor_update(){
    if(motor2>2000) motor2=2000;
    if(motor3>2000) motor3=2000;
    if(motor4>2000) motor4=2000;
+   char strx[4];
    char str1[50];
    char str2[50];
    char str3[50];
