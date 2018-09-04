@@ -23,11 +23,12 @@ int main()
          }
       }
       if(i==1){
-        x=x+1;
+        x=x-1;
          if(x<=1000){
             i=0;
          }
     }
+    str1[50]="echo 0=";
     snprintf(str2, sizeof(str2), "%d", x);
     strncat(str1, str2, 4);
     strncat(str1, str3, 22);
