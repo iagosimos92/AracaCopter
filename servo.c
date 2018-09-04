@@ -7,21 +7,30 @@ int main()
    // run servo program
    system("sudo ~/AracaCopter/ServoBlaster/user/servod --pcm");
    printf("Init\n");
-   int x=1500;
-   char str1[50];
-   char str2[4];
-   char str3[22];
+   int x=1500,i=0;
+   char str1[50]="echo 0=";
+   char str2[4]="1500";
+   char str3[22]="us > /dev/servoblaster";
 
    while(1)
     {
-    str1="echo 0=";
-    str2="1500";
-    str3="us > /dev/servoblaster";
+      if(i==0){
+        x=x+1;
+         if(x>=2000){
+            i=1;
+         }
+      }
+      if(i==1){
+        x=x+1;
+         if(x<=1000){
+            i=0;
+         }
+      }
+
     strncat(str1, str2, 4);
     strncat(str1, str3, 22);
-    printf("string= %s\n",str1);
-    //system(str1);//go to 90 degree
-    sleep(1);
+   // printf("string= %s\n",str1);
+    system(str1);//go to 90 degree
     }
     return 0;
 }
