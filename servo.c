@@ -10,7 +10,7 @@ int main()
    printf("Init\n");
    int x=1000,i=0;
    char str1[50]="echo 0=";
-   char str2[4]="1000";
+   char str2[5]="1000";
    char str3[22]="us > /dev/servoblaster";
 
    /*while(1)
@@ -32,7 +32,7 @@ int main()
     strncat(str1, str2, 4);
     strncat(str1, str3, 22);
     printf("string= %s\n",str1);
-    //system(str1);//go to 90 degree
+    system(str1);//go to 90 degree
     //}
     return 0;
 }
