@@ -103,7 +103,7 @@ void motor_update(){
    char strm2[8]="echo 4=";
    char strm3[8]="echo 5=";
    char strm4[8]="echo 6=";
-   char str[22]="us > /dev/servoblaster";
+   char str[23]="us > /dev/servoblaster";
 	
 	str1[0]= '\0';
     	snprintf(strx, sizeof(strx), "%d", motor1);
