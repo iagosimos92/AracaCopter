@@ -20,6 +20,27 @@ float outputX=0, outputY=0,outputZ=0;
 int canal[4];
 float kp[2],kd[2], ki[2];
 
+
+int main()
+{ 	
+	
+  system("sudo ~/AracaCopter/ServoBlaster/user/servod --pcm"); // run servo program 
+  tcp_open();// Iniciar conexão TCP
+  ms_open(); // Iniciar conexão com o MPU6050
+  pid_init(); // Iniciar parametros PID
+  motor_init(); // Configurar esc
+  
+
+   while(1){
+        tcp();
+        ms_update();
+        pid_update();
+        motor_update();
+    }
+    return 0;
+}
+
+
 //////////////////  Função PID  ///////////////////////
 void pid_init(){
    kp[0] = 2.2;
@@ -205,24 +226,6 @@ void tcp(){
 	*/
 }
 
-int main()
-{ 	
-	
-  system("sudo ~/AracaCopter/ServoBlaster/user/servod --pcm"); // run servo program 
-  tcp_open();// Iniciar conexão TCP
-  ms_open(); // Iniciar conexão com o MPU6050
-  pid_init(); // Iniciar parametros PID
-  motor_init(); // Configurar esc
-  
-
-   while(1){
-        tcp();
-        ms_update();
-        pid_update();
-        motor_update();
-    }
-    return 0;
-}
 
 
 
