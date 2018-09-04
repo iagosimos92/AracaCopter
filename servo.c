@@ -22,7 +22,6 @@ int main()
     printf("string= %s\n",str1);
     //system(str1);//go to 90 degree
     sleep(1);
-
     }
     return 0;
 }
