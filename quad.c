@@ -94,11 +94,44 @@ void motor_update(){
    if(motor2>2000) motor2=2000;
    if(motor3>2000) motor3=2000;
    if(motor4>2000) motor4=2000;
+   char str1[50];
+   char str2[50];
+   char str3[50];
+   char str4[50];
+   char strm1[7]="echo 3=";
+   char strm2[7]="echo 4=";
+   char strm3[7]="echo 5=";
+   char strm4[7]="echo 6=";
+   char str[22]="us > /dev/servoblaster";
 	
-/*	system("echo 3=%dus > /dev/servoblaster",motor1);//GPIO 27
-	system("echo 4=%dus > /dev/servoblaster",motor2);//GPIO 22
-	system("echo 5=%dus > /dev/servoblaster",motor3);//GPIO 23
-	system("echo 6=%dus > /dev/servoblaster",motor4);//GPIO 24*/	
+	str1[0]= '\0';
+    	snprintf(strx, sizeof(strx), "%d", motor1);
+    	strncat(str1, strm1, 7);
+    	strncat(str1, strx, 4);
+    	strncat(str1, str, 22);
+	
+	str2[0]= '\0';
+    	snprintf(strx, sizeof(strx), "%d", motor2);
+    	strncat(str2, strm2, 7);
+    	strncat(str2, strx, 4);
+    	strncat(str2, str, 22);
+	
+	str3[0]= '\0';
+    	snprintf(strx, sizeof(strx), "%d", motor3);
+    	strncat(str3, strm3, 7);
+    	strncat(str3, strx, 4);
+    	strncat(str3, str, 22);
+	
+	str4[0]= '\0';
+    	snprintf(strx, sizeof(strx), "%d", motor4);
+    	strncat(str4, strm1, 7);
+    	strncat(str4, strx, 4);
+    	strncat(str4, str, 22);
+	
+	system(str1);//GPIO 27
+	system(str2);//GPIO 22
+	system(str3);//GPIO 23
+	system(str4);//GPIO 24
 }
 
 
