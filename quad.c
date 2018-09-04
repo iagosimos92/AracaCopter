@@ -18,15 +18,16 @@ float Ix=0 , Iy=0 , Iz=0;
 float lasteX=0,lasteY=0,lasteZ=0;
 float outputX=0, outputY=0,outputZ=0; 
 int canal[4];
-float kp=2.2,kd, ki;
-float kpz=2, kdz, kiz;
+float kp[2],kd[2], ki[2];
 
 //////////////////  Função PID  ///////////////////////
 void pid_init(){
-   ki = 1.1 * (SampleTime/1000); //  KI * SampletimeinSEC
-   kd = 0.2 / (SampleTime/1000); //  KD / SampletimeinSEC
-   kiz = 1.1 * (SampleTime/1000); //  KI * SampletimeinSEC
-   kdz = 0.2 / (SampleTime/1000); //  KD / SampletimeinSEC
+   kp[0] = 2.2;
+   ki[0] = 1.1 * (SampleTime/1000); //  KI * SampletimeinSEC
+   kd[0] = 0.2 / (SampleTime/1000); //  KD / SampletimeinSEC
+   kp[1] = 2.2;
+   ki[1] = 0 * (SampleTime/1000); //  KI * SampletimeinSEC
+   kd[1] = 0.2 / (SampleTime/1000); //  KD / SampletimeinSEC   
 }
 
 void pid_update(){
@@ -39,15 +40,15 @@ void pid_update(){
       float eY = canal[4] - ypr[ROLL];
       float eZ = canal[2] - ypr[YAW];
       
-      Ix += (ki * eX);
-      Iy += (ki * eY);
-      Iz += (kiz * eZ);
+      Ix += (ki[0] * eX);
+      Iy += (ki[0] * eY);
+      Iz += (ki[1] * eZ);
 
  
       /*Compute PID Output*/
-      outputX = kp*eX + Ix - kd*(eX-lasteX);
-      outputY = kp*eY + Iy - kd*(eX-lasteX) ;
-      outputZ = kpz*eZ + Iz - kdz*(eX-lasteX) ;
+      outputX = kp[0]*eX + Ix - kd[0]*(eX-lasteX);
+      outputY = kp[0]*eY + Iy - kd[0]*(eX-lasteX) ;
+      outputZ = kp[1]*eZ + Iz - kd[1]*(eX-lasteX) ;
       
 	  
       /*Remember some variables for next time*/
