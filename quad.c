@@ -18,17 +18,15 @@ float Ix=0 , Iy=0 , Iz=0;
 float lasteX=0,lasteY=0,lasteZ=0;
 float outputX=0, outputY=0,outputZ=0; 
 int canal[4];
-float kp=2.2; 
-float kd=0.2;
-float ki=1.1;
-float kpz=2.2, kdz=0.2, kiz=1.1;
+float kp=2.2,kd, ki;
+float kpz=2, kdz, kiz;
 
 //////////////////  Função PID  ///////////////////////
 void pid_init(){
-   ki = Ki * (SampleTime/1000); //  KI * SampletimeinSEC
-   kd = Kd / (SampleTime/1000); //  KD / SampletimeinSEC
-   kiz = Kiz * (SampleTime/1000); //  KI * SampletimeinSEC
-   kdz = Kdz / (SampleTime/1000); //  KD / SampletimeinSEC
+   ki = 1.1 * (SampleTime/1000); //  KI * SampletimeinSEC
+   kd = 0.2 / (SampleTime/1000); //  KD / SampletimeinSEC
+   kiz = 1.1 * (SampleTime/1000); //  KI * SampletimeinSEC
+   kdz = 0.2 / (SampleTime/1000); //  KD / SampletimeinSEC
 }
 
 void pid_update(){
