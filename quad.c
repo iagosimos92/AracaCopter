@@ -36,9 +36,9 @@ void pid_update(){
    if(timeChange>=SampleTime)
    {
 
-      float eX = canal[3] - ypr[PITCH];
-      float eY = canal[4] - ypr[ROLL];
-      float eZ = canal[2] - ypr[YAW];
+      float eX = canal[2] - ypr[PITCH];
+      float eY = canal[3] - ypr[ROLL];
+      float eZ = canal[1] - ypr[YAW];
       
       Ix += (ki[0] * eX);
       Iy += (ki[0] * eY);
