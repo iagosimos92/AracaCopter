@@ -18,6 +18,7 @@ float Ix=0 , Iy=0 , Iz=0;
 float lasteX=0,lasteY=0,lasteZ=0;
 float outputX=0, outputY=0,outputZ=0; 
 int canal[4];
+int chanal[4];
 float kp[2],kd[2], ki[2];
 
 
@@ -179,7 +180,7 @@ void tcp(){
 		}else{
 		  	if(j==1){
 				if(buffer[i]==','){	  			
-					canal[n]=atoi(ch);
+					chanal[n]=atoi(ch);
 					if(n==3){
 						j=0;
 					}
@@ -193,6 +194,9 @@ void tcp(){
 			}
 		}
 
+	}
+	for(i=0;i<4;i++){
+		canal[i]=chanal[i]*0.06-150
 	}
 	/*---- Print the received message ----*/ 	
 	/*printf("\n");
