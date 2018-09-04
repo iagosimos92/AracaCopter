@@ -136,11 +136,7 @@ void motor_update(){
 	//system(str2);//GPIO 22
 	//system(str3);//GPIO 23
 	//system(str4);//GPIO 24
-	printf("motor1 = %d ",motor1);
-	printf("motor2 = %d ",motor2);
-	printf("motor3 = %d ",motor3);
-	printf("motor4 = %d ",motor4);
-	printf("\n");
+
 }
 
 
@@ -205,7 +201,13 @@ void tcp(){
 		}else{
 			canal[i]=chanal[i]*0.06-150;
 		}
+		
 	}
+	printf("motor1 = %d ",canal[0]);
+	printf("motor2 = %d ",canal[1]);
+	printf("motor3 = %d ",canal[2]);
+	printf("motor4 = %d ",canal[3]);
+	printf("\n");
 }
 
 
