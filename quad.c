@@ -193,22 +193,10 @@ void tcp(){
 					}
 			}
 		}
-
 	}
 	for(i=0;i<4;i++){
-		canal[i]=chanal[i]*0.06-150
+		canal[i]=chanal[i]*0.06-150;
 	}
-	/*---- Print the received message ----*/ 	
-	/*printf("\n");
-	printf("Ch1: %d",canal[0]);
-	printf("\n");
-	printf("Ch2: %d",canal[1]);
-	printf("\n");
-	printf("Ch3: %d",canal[2]);
-	printf("\n");
-	printf("Ch4: %d",canal[3]);
-	printf("\n");
-	*/
 }
 
 
