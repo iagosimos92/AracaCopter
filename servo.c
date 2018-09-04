@@ -27,7 +27,8 @@ int main()
             i=0;
          }
       }
-    itoa(x, str2, 10);
+    //itoa(x, str2, 10);
+    snprintf(str2, sizeof(str2), "%d", x);
     strncat(str1, str2, 4);
     strncat(str1, str3, 22);
    // printf("string= %s\n",str1);
