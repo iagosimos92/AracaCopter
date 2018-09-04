@@ -99,10 +99,10 @@ void motor_update(){
    char str2[50];
    char str3[50];
    char str4[50];
-   char strm1[7]="echo 3=";
-   char strm2[7]="echo 4=";
-   char strm3[7]="echo 5=";
-   char strm4[7]="echo 6=";
+   char strm1[8]="echo 3=";
+   char strm2[8]="echo 4=";
+   char strm3[8]="echo 5=";
+   char strm4[8]="echo 6=";
    char str[22]="us > /dev/servoblaster";
 	
 	str1[0]= '\0';
