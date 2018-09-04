@@ -2,15 +2,15 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h> //necessário para strcpy
-#include <wiringPi.h>
+
 int main()
 {
    // run servo program
    system("sudo ~/AracaCopter/ServoBlaster/user/servod --pcm");
    printf("Init\n");
-   int x=1500,i=0;
+   int x=1000,i=0;
    char str1[50]="echo 0=";
-   char str2[4]="1500";
+   char str2[4]="1000";
    char str3[22]="us > /dev/servoblaster";
 
    while(1)
@@ -27,7 +27,7 @@ int main()
             i=0;
          }
       }
-
+    itoa(x, str2, 10);
     strncat(str1, str2, 4);
     strncat(str1, str3, 22);
    // printf("string= %s\n",str1);
