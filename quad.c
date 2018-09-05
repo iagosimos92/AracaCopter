@@ -137,11 +137,11 @@ void motor_update(){
 	//system(str3);//GPIO 23
 	//system(str4);//GPIO 24
 	
-	printf("motor1 = %s ",str1);
-	printf("motor2 = %s ",str2);
-	printf("motor3 = %s ",str3);
-	printf("motor4 = %s ",str4);
-	printf("\n");
+	printf("motor1 = %s \n",str1);
+	printf("motor2 = %s \n",str2);
+	printf("motor3 = %s \n",str3);
+	printf("motor4 = %s \n",str4);
+	//printf("\n");
 
 }
 
