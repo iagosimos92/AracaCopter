@@ -20,7 +20,7 @@ float outputX=0, outputY=0,outputZ=0;
 int canal[4];
 int chanal[4];
 float kp[2],kd[2], ki[2];
-int t1=0;
+int t1=0,t2=0,t3=0;
 
 
 //////////////////  Função PID  ///////////////////////
@@ -34,6 +34,7 @@ void pid_init(){
 }
 
 void pid_update(){
+   int te=millis();	
    unsigned long now = millis();
    int timeChange = (now - lastTime);
    if(timeChange>=SampleTime)
@@ -60,7 +61,8 @@ void pid_update(){
       lasteZ=eZ;
       lastTime = now;
    }
-	
+   t1=te-millis();
+   printf("pid = %d ",t1);
 }
 
 
@@ -73,6 +75,7 @@ void motor_init(){
 
 }
 void motor_update(){
+   int te=millis();
    velX = canal[0] + outputZ;
    velY = canal[0] - outputZ;
 
@@ -141,6 +144,8 @@ void motor_update(){
 	printf("m2 = %d ",motor2);
 	printf("m3 = %d ",motor3);
 	printf("m4 = %d \n",motor4);*/
+	t2=te-millis();
+        printf("motor = %d ",t2);
 }
 
 
@@ -172,6 +177,7 @@ void tcp_open(){
 
 
 void tcp(){
+	int te=millis();
 	int i=0,w=0,n=0,j=0;
 	char buffer[21];
         char ch[4];
@@ -207,6 +213,8 @@ void tcp(){
 		}
 		
 	}
+	t3=te-millis();
+        printf("tcp = %d ",t3);
 }
 
 
@@ -224,14 +232,14 @@ int main()
   canal[3]=1100;
   
 
-   while(1){
-	int te=millis();   
-        //tcp();
+   while(1){ 
+	int te=millis();
+        tcp();
         ms_update();
         pid_update();
         motor_update();
-	t1=te-millis();
-	printf("T = %d \n",t1);
+	t4=te-millis();
+	printf("T = %d \n",t4);
     }
     return 0;
 	
