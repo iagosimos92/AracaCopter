@@ -31,7 +31,6 @@ void pid_init(){
    ki[1] = 0 * (SampleTime/1000); //  KI * SampletimeinSEC
    kd[1] = 0.2 / (SampleTime/1000); //  KD / SampletimeinSEC   
 }
-
 void pid_update(){	
    unsigned long now = millis();
    int timeChange = (now - lastTime);
