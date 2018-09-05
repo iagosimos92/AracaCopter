@@ -26,7 +26,7 @@ float kp[2],kd[2], ki[2];
 //////////////////  Função PID  ///////////////////////
 void pid_init(){
    kp[0] = 2.2;
-   ki[0] = 1.1 * (SampleTime/1000); //  KI * SampletimeinSEC
+   ki[0] = 0 * (SampleTime/1000); //  KI * SampletimeinSEC
    kd[0] = 0.2 / (SampleTime/1000); //  KD / SampletimeinSEC
    kp[1] = 2.2;
    ki[1] = 0 * (SampleTime/1000); //  KI * SampletimeinSEC
@@ -132,10 +132,20 @@ void motor_update(){
     	strncat(str4, strx, 4);
     	strncat(str4, str, 22);
 	
-	//system(str1);//GPIO 27
-	//system(str2);//GPIO 22
-	//system(str3);//GPIO 23
-	//system(str4);//GPIO 24
+	system(str1);//GPIO 27
+	system(str2);//GPIO 22
+	system(str3);//GPIO 23
+	system(str4);//GPIO 24
+	
+	printf("m1 = %d ",motor1);
+	printf("m2 = %d ",motor2);
+	printf("m3 = %d ",motor3);
+	printf("m4 = %d \n",motor4);
+	
+	printf("m1 = %s ",str1);
+	printf("m2 = %s ",str2);
+	printf("m3 = %s ",str3);
+	printf("m4 = %s \n",str4);
 }
 
 
@@ -220,10 +230,7 @@ int main()
         ms_update();
         pid_update();
         motor_update();
-	   	
-	printf("x = %f ",ypr[PITCH]);
-	printf("y = %f ",ypr[ROLL]);
-	printf("z = %f \n",ypr[YAW]);
+
     }
     return 0;
 }
