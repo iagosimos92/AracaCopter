@@ -164,7 +164,6 @@ void tcp_open(){
 
 
 void tcp(){
-	int te=millis();
 	int i=0,w=0,n=0,j=0;
 	char buffer[31];
         char ch[4];
