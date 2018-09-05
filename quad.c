@@ -50,8 +50,8 @@ void pid_update(){
  
       /*Compute PID Output*/
       outputX = kp[0]*eX + Ix - kd[0]*(eX-lasteX);
-      outputY = kp[0]*eY + Iy - kd[0]*(eX-lasteX) ;
-      outputZ = kp[1]*eZ + Iz - kd[1]*(eX-lasteX) ;
+      outputY = kp[0]*eY + Iy - kd[0]*(eY-lasteY) ;
+      outputZ = kp[1]*eZ + Iz - kd[1]*(eZ-lasteZ);
       
 	  
       /*Remember some variables for next time*/
