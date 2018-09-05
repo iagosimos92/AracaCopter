@@ -17,10 +17,9 @@ float outmax=300, outmin=-300;
 float Ix=0 , Iy=0 , Iz=0;
 float lasteX=0,lasteY=0,lasteZ=0;
 float outputX=0, outputY=0,outputZ=0; 
-int canal[4];
-int chanal[4];
+int canal[6];
+int chanal[6];
 float kp[2],kd[2], ki[2];
-int t1=0,t2=0,t3=0,t4=0;
 
 
 //////////////////  Função PID  ///////////////////////
@@ -33,8 +32,7 @@ void pid_init(){
    kd[1] = 0.2 / (SampleTime/1000); //  KD / SampletimeinSEC   
 }
 
-void pid_update(){
-   int te=millis();	
+void pid_update(){	
    unsigned long now = millis();
    int timeChange = (now - lastTime);
    if(timeChange>=SampleTime)
@@ -61,8 +59,6 @@ void pid_update(){
       lasteZ=eZ;
       lastTime = now;
    }
-   t1=te-millis();
-   printf("pid = %d ",t1);
 }
 
 
@@ -75,7 +71,6 @@ void motor_init(){
 
 }
 void motor_update(){
-   int te=millis();
    velX = canal[0] + outputZ;
    velY = canal[0] - outputZ;
 
@@ -139,13 +134,6 @@ void motor_update(){
 	system(str2);//GPIO 22
 	system(str3);//GPIO 23
 	system(str4);//GPIO 24
-	
-	/*printf("m1 = %d ",motor1);
-	printf("m2 = %d ",motor2);
-	printf("m3 = %d ",motor3);
-	printf("m4 = %d \n",motor4);*/
-	t2=te-millis();
-        printf("motor = %d ",t2);
 }
 
 
@@ -179,11 +167,11 @@ void tcp_open(){
 void tcp(){
 	int te=millis();
 	int i=0,w=0,n=0,j=0;
-	char buffer[21];
+	char buffer[31];
         char ch[4];
 	/*---- Read the message from the server into the buffer ----*/
-	recv(clientSocket, buffer, 21, 0);
-	for(i=0;i<21;i++){
+	recv(clientSocket, buffer, 31, 0);
+	for(i=0;i<31;i++){
 		if(buffer[i]=='a' && i==0){
 			j=1;
 			n=0;
@@ -192,7 +180,7 @@ void tcp(){
 		  	if(j==1){
 				if(buffer[i]==','){	  			
 					chanal[n]=atoi(ch);
-					if(n==3){
+					if(n==5){
 						j=0;
 					}
 					n=n+1;
@@ -205,16 +193,21 @@ void tcp(){
 			}
 		}
 	}
-	for(i=0;i<4;i++){
+	for(i=0;i<6;i++){
 		if(i==0){
 			canal[i]=chanal[i]-1000;
 		}else{
-			canal[i]=chanal[i]*0.06-150;
-		}
-		
+			if(i>=4){
+				if(chanal[i]>2500){
+					canal[i]=1;
+				}else{
+					canal[i]=0;
+				}
+			}else{
+				canal[i]=chanal[i]*0.06-150;
+			}
+		}	
 	}
-	t3=te-millis();
-        printf("tcp = %d ",t3);
 }
 
 
@@ -222,15 +215,11 @@ int main()
 { 	
 	
   system("sudo ~/AracaCopter/ServoBlaster/user/servod --pcm"); // run servo program 
-  //tcp_open();// Iniciar conexão TCP
+  tcp_open();// Iniciar conexão TCP
   ms_open(); // Iniciar conexão com o MPU6050
   pid_init(); // Iniciar parametros PID
   motor_init(); // Configurar esc
-  canal[0]=1100;
-  canal[1]=1100;
-  canal[2]=1100;
-  canal[3]=1100;
-  
+ 
 
    while(1){ 
 	int te=millis();
@@ -238,8 +227,12 @@ int main()
         ms_update();
         pid_update();
         motor_update();
-	t4=te-millis();
-	printf("T = %d \n",t4);
+	printf(" %d ",canal[0]);
+	printf(" %d ",canal[1]);
+	printf(" %d ",canal[2]);
+	printf(" %d ",canal[3]);
+	printf(" %d ",canal[4]);
+	printf(" %d \n",canal[5]);
     }
     return 0;
 	
