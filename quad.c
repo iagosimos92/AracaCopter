@@ -136,13 +136,6 @@ void motor_update(){
 	//system(str2);//GPIO 22
 	//system(str3);//GPIO 23
 	//system(str4);//GPIO 24
-	
-	printf("motor1 = %s \n",str1);
-	printf("motor2 = %s \n",str2);
-	printf("motor3 = %s \n",str3);
-	printf("motor4 = %s \n",str4);
-	//printf("\n");
-
 }
 
 
@@ -216,17 +209,21 @@ int main()
 { 	
 	
   system("sudo ~/AracaCopter/ServoBlaster/user/servod --pcm"); // run servo program 
-  tcp_open();// Iniciar conexão TCP
+  //tcp_open();// Iniciar conexão TCP
   ms_open(); // Iniciar conexão com o MPU6050
   pid_init(); // Iniciar parametros PID
   motor_init(); // Configurar esc
   
 
    while(1){
-        tcp();
+        //tcp();
         ms_update();
         pid_update();
         motor_update();
+	   	
+	printf("x = %d ",ypr[PITCH]);
+	printf("y = %s ",ypr[ROLL]);
+	printf("z = %d \n",ypr[YAW]);
     }
     return 0;
 }
