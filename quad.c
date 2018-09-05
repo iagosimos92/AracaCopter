@@ -218,6 +218,10 @@ int main()
   ms_open(); // Iniciar conexão com o MPU6050
   pid_init(); // Iniciar parametros PID
   motor_init(); // Configurar esc
+  canal[0]=1100;
+  canal[1]=1100;
+  canal[2]=1100;
+  canal[3]=1100;
   
 
    while(1){
