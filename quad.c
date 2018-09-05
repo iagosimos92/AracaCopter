@@ -132,10 +132,10 @@ void motor_update(){
     	strncat(str4, strx, 4);
     	strncat(str4, str, 22);
 	
-	//system(str1);//GPIO 27
-	//system(str2);//GPIO 22
-	//system(str3);//GPIO 23
-	//system(str4);//GPIO 24
+	system(str1);//GPIO 27
+	system(str2);//GPIO 22
+	system(str3);//GPIO 23
+	system(str4);//GPIO 24
 
 }
 
