@@ -220,11 +220,11 @@ int main()
  
 
    while(1){ 
-	int te=millis();
         tcp();
         ms_update();
         pid_update();
         motor_update();
+	   
 	printf(" %d ",canal[0]);
 	printf(" %d ",canal[1]);
 	printf(" %d ",canal[2]);
