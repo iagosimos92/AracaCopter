@@ -36,6 +36,7 @@ void pid_init(){
 void pid_update(){
    unsigned long now = millis();
    int timeChange = (now - lastTime);
+   printf("m4 = %d \n",timeChange);
    if(timeChange>=SampleTime)
    {
 
@@ -137,15 +138,10 @@ void motor_update(){
 	system(str3);//GPIO 23
 	system(str4);//GPIO 24
 	
-	printf("m1 = %d ",motor1);
+	/*printf("m1 = %d ",motor1);
 	printf("m2 = %d ",motor2);
 	printf("m3 = %d ",motor3);
-	printf("m4 = %d \n",motor4);
-	
-	printf("m1 = %s ",str1);
-	printf("m2 = %s ",str2);
-	printf("m3 = %s ",str3);
-	printf("m4 = %s \n",str4);
+	printf("m4 = %d \n",motor4);*/
 }
 
 
@@ -219,14 +215,14 @@ int main()
 { 	
 	
   system("sudo ~/AracaCopter/ServoBlaster/user/servod --pcm"); // run servo program 
-  tcp_open();// Iniciar conexão TCP
+  //tcp_open();// Iniciar conexão TCP
   ms_open(); // Iniciar conexão com o MPU6050
   pid_init(); // Iniciar parametros PID
   motor_init(); // Configurar esc
   
 
    while(1){
-        tcp();
+        //tcp();
         ms_update();
         pid_update();
         motor_update();
