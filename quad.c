@@ -20,7 +20,7 @@ float outputX=0, outputY=0,outputZ=0;
 int canal[4];
 int chanal[4];
 float kp[2],kd[2], ki[2];
-int t=0;
+int t1=0;
 
 
 //////////////////  Função PID  ///////////////////////
@@ -226,8 +226,8 @@ int main()
         ms_update();
         pid_update();
         motor_update();
-	t=te-millis();
-	printf("T = %d \n",t);
+	t1=te-millis();
+	printf("T = %d \n",t1);
     }
     return 0;
 }
