@@ -3,7 +3,7 @@ ServoBlasster - clone from https://github.com/richardghirst/PiBits.git
 
 Compilar o programa
 ~/AracaCopter/ServoBlaster/user $ sudo make install
-~/AracaCopter  $ make
+~/AracaCopter                   $ make
 
 Executar o programa
-~/AracaCopter  $ ./run
+~/AracaCopter                   $ ./run
