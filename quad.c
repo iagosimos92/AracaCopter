@@ -221,9 +221,9 @@ int main()
         pid_update();
         motor_update();
 	   	
-	printf("x = %d ",ypr[PITCH]);
-	printf("y = %s ",ypr[ROLL]);
-	printf("z = %d \n",ypr[YAW]);
+	printf("x = %f ",ypr[PITCH]);
+	printf("y = %f ",ypr[ROLL]);
+	printf("z = %f \n",ypr[YAW]);
     }
     return 0;
 }
