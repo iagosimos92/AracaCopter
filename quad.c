@@ -12,7 +12,7 @@ int clientSocket;
 int velX=0,velY=0;
 int motor1=1000, motor2=1000, motor3=1000, motor4=1000;
 float SampleTime = 10; 
-unsigned long lastTime=0,t=0;
+unsigned long lastTime=0;
 float outmax=300, outmin=-300;
 float Ix=0 , Iy=0 , Iz=0;
 float lasteX=0,lasteY=0,lasteZ=0;
@@ -20,7 +20,7 @@ float outputX=0, outputY=0,outputZ=0;
 int canal[4];
 int chanal[4];
 float kp[2],kd[2], ki[2];
-
+int t=0;
 
 
 //////////////////  Função PID  ///////////////////////
