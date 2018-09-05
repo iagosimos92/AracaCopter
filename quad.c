@@ -12,7 +12,7 @@ int clientSocket;
 int velX=0,velY=0;
 int motor1=1000, motor2=1000, motor3=1000, motor4=1000;
 float SampleTime = 10; 
-unsigned long lastTime=0;
+unsigned long lastTime=0,t=0;
 float outmax=300, outmin=-300;
 float Ix=0 , Iy=0 , Iz=0;
 float lasteX=0,lasteY=0,lasteZ=0;
@@ -36,7 +36,6 @@ void pid_init(){
 void pid_update(){
    unsigned long now = millis();
    int timeChange = (now - lastTime);
-   printf("m4 = %d \n",timeChange);
    if(timeChange>=SampleTime)
    {
 
@@ -215,18 +214,20 @@ int main()
 { 	
 	
   system("sudo ~/AracaCopter/ServoBlaster/user/servod --pcm"); // run servo program 
-  //tcp_open();// Iniciar conexão TCP
+  tcp_open();// Iniciar conexão TCP
   ms_open(); // Iniciar conexão com o MPU6050
   pid_init(); // Iniciar parametros PID
   motor_init(); // Configurar esc
   
 
    while(1){
-        //tcp();
+	int te=millis();   
+        tcp();
         ms_update();
         pid_update();
         motor_update();
-
+	t=te-millis();
+	printf("T = %d \n",t);
     }
     return 0;
 }
