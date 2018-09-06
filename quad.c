@@ -129,10 +129,10 @@ void motor_update(){
     	strncat(str4, strx, 4);
     	strncat(str4, str, 22);
 	
-	system(str1);//GPIO 27
-	system(str2);//GPIO 22
-	system(str3);//GPIO 23
-	system(str4);//GPIO 24
+	//system(str1);//GPIO 27
+	//system(str2);//GPIO 22
+	//system(str3);//GPIO 23
+	//system(str4);//GPIO 24
 }
 
 
@@ -170,26 +170,25 @@ void tcp(){
 	/*---- Read the message from the server into the buffer ----*/
 	recv(clientSocket, buffer, 31, 0);
 	for(i=0;i<31;i++){
-		if(buffer[i]=='a' && i==0){
-			j=1;
-			n=0;
+		 if(buffer[i]=='a' && i==0){
+		  	j=1;
+		  	n=0;
 			w=0;
 		}else{
-		  	if(j==1){
+			if(j==1){		
 				if(buffer[i]==','){	  			
-					chanal[n]=atoi(ch);
+					canal[n]=atoi(ch);
 					if(n==5){
 						j=0;
 					}
 					n=n+1;
-					w=0;
-								
-					}else{
-						ch[w]=buffer[i];
-						w=w+1;	  		
-					}
+					w=0;	
+				}else{
+					ch[w]=buffer[i];
+					w=w+1;	  		
+				}
 			}
-		}
+		 }
 	}
 	for(i=0;i<6;i++){
 		if(i==0){
