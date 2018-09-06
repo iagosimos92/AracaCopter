@@ -197,6 +197,12 @@ void tcp(){
 			canal[i]=chanal[i]*0.06-150;
 		}	
 	}
+	printf(" %d ",canal[0]);
+	printf(" %d ",canal[1]);
+	printf(" %d ",canal[2]);
+	printf(" %d ",canal[3]);
+	printf(" %d ",canal[4]);
+	printf(" %d \n",canal[5]);
 }
 
 
@@ -216,12 +222,6 @@ int main()
         pid_update();
         motor_update();
 	   
-	printf(" %d ",canal[0]);
-	printf(" %d ",canal[1]);
-	printf(" %d ",canal[2]);
-	printf(" %d ",canal[3]);
-	printf(" %d ",canal[4]);
-	printf(" %d \n",canal[5]);
     }
     return 0;
 	
