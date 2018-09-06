@@ -165,11 +165,11 @@ void tcp_open(){
 
 void tcp(){
 	int i=0,w=0,n=0,j=0;
-	char buffer[21];
-        char ch[4];
+	char buffer[31];
+        char ch[6];
 	/*---- Read the message from the server into the buffer ----*/
-	recv(clientSocket, buffer, 21, 0);
-	for(i=0;i<21;i++){
+	recv(clientSocket, buffer, 31, 0);
+	for(i=0;i<31;i++){
 		if(buffer[i]=='a' && i==0){
 			j=1;
 			n=0;
@@ -178,7 +178,7 @@ void tcp(){
 		  	if(j==1){
 				if(buffer[i]==','){	  			
 					chanal[n]=atoi(ch);
-					if(n==3){
+					if(n==5){
 						j=0;
 					}
 					n=n+1;
@@ -191,7 +191,7 @@ void tcp(){
 			}
 		}
 	}
-	for(i=0;i<4;i++){
+	for(i=0;i<6;i++){
 		if(i==0){
 			canal[i]=chanal[i]-1000;
 		}else{
