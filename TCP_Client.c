@@ -8,9 +8,9 @@
 
 int main(){
   int clientSocket;
-  char buffer[21];
-  char ch[4];
-  int canal[4];
+  char buffer[31];
+  char ch[6];
+  int canal[6];
   struct sockaddr_in serverAddr;
   socklen_t addr_size;
 
@@ -34,8 +34,8 @@ int main(){
   while(1){
 	      int i=0,w=0,n=0,j=0;
 	  	  /*---- Read the message from the server into the buffer ----*/
-		  recv(clientSocket, buffer, 21, 0);
-		  	for(i=0;i<21;i++){
+		  recv(clientSocket, buffer, 31, 0);
+		  	for(i=0;i<31;i++){
 		  		if(buffer[i]=='a' && i==0){
 		  			j=1;
 		  			n=0;
@@ -45,7 +45,7 @@ int main(){
 						
 						if(buffer[i]==','){	  			
 							canal[n]=atoi(ch);
-							if(n==3){
+							if(n==5){
 								j=0;
 							}
 						 	n=n+1;
@@ -61,14 +61,18 @@ int main(){
 			}
 		  	/*---- Print the received message ----*/
 		  	
-		  	printf("\n");
-		  	printf("Ch1: %d",canal[0]);
-		  	printf("\n");
-		  	printf("Ch2: %d",canal[1]);
-		  	printf("\n");
-		  	printf("Ch3: %d",canal[2]);
-		  	printf("\n");
-		  	printf("Ch4: %d",canal[3]);
+		  	//printf("\n");
+		  	printf("Ch1: %d ",canal[0]);
+		  	//printf("\n");
+		  	printf("Ch2: %d ",canal[1]);
+		  	//printf("\n");
+		  	printf("Ch3: %d ",canal[2]);
+		  	//printf("\n");
+		  	printf("Ch4: %d ",canal[3]);
+		  	//printf("\n");
+	 		printf("Ch5: %d ",canal[4]);
+		  	//printf("\n");
+	 	        printf("Ch6: %d ",canal[5]);
 		  	printf("\n");
 		  	
 		
